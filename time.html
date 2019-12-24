@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>React Example</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container pt-3">
+      <div id="app" class="col-md-3"></div>
+    </div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16.12/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16.12/umd/react-dom.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"
+    ></script>
+
+    <script type="text/babel">
+      const root = document.getElementById("app");
+      const CurrentTime = () => {
+        const currTime = new Date().toLocaleTimeString();
+        return (
+          <div>
+            <input type="text" value={currTime} className="form-control mb-3" />
+          </div>
+        );
+      };
+
+      setInterval(() => {
+        ReactDOM.render(<CurrentTime />, root);
+      }, 1000);
+    </script>
+  </body>
+</html>
